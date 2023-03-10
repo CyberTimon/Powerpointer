@@ -8,11 +8,11 @@ The PowerPoint generator comes with a beautiful Flask chat interface that waits 
 You need a OpenAI API Key. You get 5 dollar free coins when you sign up. These will likely be more than enough for you.
 
 # How it works:
--The user sends a prompt\n
--The Flask chat interface will receive the prompt and send it to the GPT 3.5 model.\n
--The GPT 3.5 model generates content based on the prompt.\n
--The Python-pptx library converts the generated content into a PowerPoint presentation and then sends it back to the flask interface.\n
--This tool is perfect for anyone who wants to quickly create professional-looking PowerPoint presentations without spending hours on design and content creation.
+- The user sends a prompt
+- The Flask chat interface will receive the prompt and send it to the GPT 3.5 model.
+- The GPT 3.5 model generates content based on the prompt.
+- The Python-pptx library converts the generated content into a PowerPoint presentation and then sends it back to the flask interface.
+- This tool is perfect for anyone who wants to quickly create professional-looking PowerPoint presentations without spending hours on design and content creation.
 
 To use this, clone the repository and install the following packages:
 ```
