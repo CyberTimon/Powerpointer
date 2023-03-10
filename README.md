@@ -1,5 +1,5 @@
 # PowerPoint Generator using Python-pptx and GPT 3.5
-This is a PowerPoint generator that uses Python-pptx and GPT 3.5 to generate beautiful and informative presentations. The tool is developed by CyberTimon and can be accessed by emailing timon@cybertimon.ch.
+This is a PowerPoint generator that uses Python-pptx and GPT 3.5 to generate beautiful and informative presentations. 
 
 ## Warning: The code for this tool is not professional and may require modifications to meet specific needs.
 
@@ -20,4 +20,4 @@ pip install flask, python-pptx, flask_limiter, openai
 ```
 
 Please report any issues!
-Made by CyberTimon
+Made by CyberTimon (timon@cybertimon.ch)
