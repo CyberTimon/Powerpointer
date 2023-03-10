@@ -24,5 +24,8 @@ Please report any issues!
 
 Made by CyberTimon (timon@cybertimon.ch)
 
+#This is how the powerpoints will look:
 ![alt text](https://github.com/CyberTimon/powerpointer/raw/main/Demo1.png)
+
+
 ![alt text](https://github.com/CyberTimon/powerpointer/raw/main/Demo2.png)
