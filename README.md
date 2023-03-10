@@ -18,6 +18,7 @@ To use this, clone the repository and install the following packages:
 ```
 pip install flask, python-pptx, flask_limiter, openai
 ```
+Then start the flask webserver by running "start_app.bat"
 
 Please report any issues!
 Made by CyberTimon (timon@cybertimon.ch)
