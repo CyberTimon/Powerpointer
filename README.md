@@ -23,3 +23,6 @@ Then start the flask webserver by running "start_app.bat"
 Please report any issues!
 
 Made by CyberTimon (timon@cybertimon.ch)
+
+![alt text](https://github.com/CyberTimon/powerpointer/raw/main/Demo1.png)
+![alt text](https://github.com/CyberTimon/powerpointer/raw/main/Demo2.png)
