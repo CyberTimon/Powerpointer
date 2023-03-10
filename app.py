@@ -94,14 +94,14 @@ def create_ppt(text_file, design_number, ppt_name):
                 content = "" 
                 slide_count += 1
                 slide_layout_index = last_slide_layout_index
-                layout_indices = [1, 7, 8] # Liste der Layout-Indizes
+                layout_indices = [1, 7, 8] 
                 while slide_layout_index == last_slide_layout_index:
                     if firsttime == True:
                         slide_layout_index = 1
                         slide_placeholder_index = 1
                         firsttime = False
                         break
-                    slide_layout_index = random.choice(layout_indices) # Zufälligen Index auswählen
+                    slide_layout_index = random.choice(layout_indices) # Select random slide index
                     if slide_layout_index == 8:
                         slide_placeholder_index = 2
                     else:
@@ -149,16 +149,16 @@ def get_bot_response():
     if last_char.isdigit():
         number = int(last_char)
         input_string = user_text[:-2]
-        print("Design Nummer:", number, "wurde ausgewählt.")
+        print("Design Number:", number, "selected.")
     else:
-        print("Kein Design ausgewählt, das Standartdesign wird angewendet...")
+        print("No design specified, using default design...")
         
     if number > 7:
         number = 1
-        print("Ungültiges Design, Standartdesign wird angewendet...")
+        print("Unavailable design, using default design...")
     elif number == 0:
         number = 1
-        print("Ungültiges Design, Standartdesign wird angewendet...")
+        print("Unavailable design, using default design...")
 
     with open(f'Cache/{input_string}.txt', 'w', encoding='utf-8') as f:
         f.write(create_ppt_text(input_string))
