@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>CyberTimon CT AI</title>
+  <head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">	
+	<link rel="icon" href="/static/favicon.ico?v=2" type="image/x-icon">
+	<meta name="viewport" content="width=400, initial-scale=1" />
+	<meta charset="UTF-8">
+
+    <style>
+      body {
+        font-family: Quicksand;
+		background-color: #343541;
+		color: #ECECF1;
+      }
+      h1 {
+        background-color: #c35250;
+        color: #ECECF1;
+        display: inline-block;
+        font-size: 2em;
+        margin: 0;
+        padding: 10px;
+        border: 2px solid #000000;
+		border-radius: 10px;
+		font-family: monospace;
+      }
+	  a {
+		color: #c35250;
+	  }
+	  text {
+		font-size: 15px;
+		text-align: center;
+	  }
+
+      #userInput {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        margin-top: 20px;
+      }
+      #textInput {
+        width: 100%;
+		background-color: #5c5c5c63;
+        border: 2px solid #000000;
+		border-radius: 10px;
+        font-family: Quicksand;
+        font-size: 17px;
+        margin-bottom: 10px;
+		block-size: 25px;
+		padding: 5px;
+		color: #ECECF1;
+      }
+      #textInput:focus {
+        outline:none;
+        border: 2px solid #000000;
+      }
+      .userText {
+        padding-left: 10%;
+        animation: pulse .5s ease-in-out;
+      }
+      .userText p {
+        color: #ECECF1;
+        font-family: Quicksand;
+        font-size: 17px;
+        text-align: left;
+        line-height: 25px;
+        margin-top: 25px;
+        background-color: #5c5c5c63;
+        box-shadow: 10px 10px 0px 0px #000000;
+        border: 2px solid #000000;
+		border-radius: 10px;
+        padding: 20px;
+		white-space: pre-wrap;
+      }
+
+      .botText {
+        padding-right: 10%;
+        animation: pulse .5s ease-in-out;
+      }
+      .botText p {
+        color: #ECECF1;
+        font-family: Quicksand;
+        font-size: 17px;
+        text-align: left;
+        line-height: 25px;
+		margin-top: 25px;
+        background-color: #28282863 ;
+        box-shadow: 10px 10px 0px 0px #000000;
+        border: 2px solid #000000;
+		border-radius: 10px;
+        padding: 20px;
+		white-space: pre-wrap;
+      }
+	  
+      .botText img {
+        color: #ECECF1;
+        line-height: 25px;
+		margin-top: 25px;
+        background-color: #28282863 ;
+        box-shadow: 10px 10px 0px 0px #000000;
+        border: 2px solid #000000;
+	max-width: -webkit-fill-available;
+		border-radius: 10px;
+      }
+	  
+	  .newConversation {
+	    color: #ececf154;
+	  }
+
+      #tidbit {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+      }
+      .boxed {
+        margin-left: auto;
+		margin-right: auto;
+        width: 50%;
+        margin-top: 20px;
+		height: 450px;
+      }
+	  
+	  @media only screen and (max-width:900px) {
+	    .boxed {
+		  width: 80%;
+		}
+	  }
+	  
+	  
+	  @media only screen and (max-width:500px) {
+	    .boxed {
+		  width: 90%;
+		}
+	  }
+	  
+      @keyframes pulse {
+        from {
+          transform: scale3d(1, 1, 1);
+        }
+
+        50% {
+          transform: scale3d(1.05, 1.05, 1.05);
+        }
+
+        to {
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>
+        CyberTimon CT AI - Powerpoint Generator
+      </h1>
+	  
+    </center>
+
+    <div class="box"></div>
+    <div class="boxed">
+      <div>
+        <div id="chatbox"></div>
+        <div id="userInput">
+          <textarea id="textInput" type="text" autofocus="autofocus" name="msg" placeholder="Enter topic here..."></textarea>
+        </div>
+      </div>
+      <script>
+        var textInput = document.getElementById("textInput");
+        var chatBox = document.getElementById("chatbox");
+
+        function renderStartMessage(msg, className) {
+          var msgHtml = document.createElement("div");
+          msgHtml.appendChild(document.createElement("p"))
+                 .appendChild(document.createElement("span"))
+                 .appendChild(document.createTextNode(msg));
+          msgHtml.className = className;
+          return msgHtml;
+        }
+		
+		function renderMessage(msg, className) {
+		  var msgHtml = document.createElement("div");
+		  var para = msgHtml.appendChild(document.createElement("p"));
+		  var span = para.appendChild(document.createElement("span"));
+		  
+		  span.appendChild(document.createTextNode("The PowerPoint is ready!\nDownload it here: "));
+		  var linkQA = document.createElement("a");
+		  linkQA.href = msg;
+		  linkQA.appendChild(document.createTextNode("Download"));
+		  span.appendChild(linkQA);
+          msgHtml.className = className;
+          return msgHtml;
+        }
+
+        function writeAsUser(msg) {
+          chatBox.appendChild(renderStartMessage(msg, "userText"));
+          scrollToBottom();
+        }
+
+        function writeStartMessage(msg) {
+          chatBox.appendChild(renderStartMessage(msg, "botText"));
+          scrollToBottom();
+        }
+
+        function writeAsBot(msg) {
+          chatBox.appendChild(renderMessage(msg, "botText"));
+          scrollToBottom();
+        }
+
+        function scrollToBottom() {
+            textInput.scrollIntoView({ block: "start", behavior: "smooth" });
+        }
+
+		function talkToBot() {
+          var rawText = textInput.value;
+		  textInput.value = "";
+		  textInput.setAttribute("style", "height: 31" + "px;overflow-y:hidden;");
+          
+          writeAsUser(rawText);
+		  
+          fetch("/get?" + new URLSearchParams({
+            msg: rawText
+          })).then(response => response.text())
+             .then(responseText => {
+                writeAsBot(responseText);
+              });
+        }
+		
+		textInput.setAttribute("style", "height: 31" + "px;overflow-y:hidden;");
+		textInput.addEventListener("input", OnInput, false);
+
+		function OnInput() {
+			if(this.value === "") {
+				this.style.height = '31px';
+				this.focus();
+			}else{
+				this.style.height = 0;
+				this.style.height = (this.scrollHeight) + "px";
+			}
+		}
+		
+        textInput.addEventListener('keypress', e => {
+          if (e.which == 13 && e.shiftKey == false && textInput.value.length > 2) {
+            talkToBot();
+			if(event.preventDefault) event.preventDefault();
+			return false;
+          }
+        });
+
+        writeStartMessage("Hello!\nUse artificial intelligence to generate complete PowerPoint presentations!\nIn addition, placeholders for images are created.\n\nWhat do you want a presentation about? \n\nExamples:\n-How to breed ants. -7\n-Discovery of space (min. 10 slides)\n-Make films and the challenges\n\nTo change the design of the powerpoint, at the end of your message you can e.g. Add -2 (1-7).\nMost common designs: -1 (Envelope, Standard), -5 (Wood), -6 (Clean, Light Blue), -7 (Black, White)\n\nI would appreciate a look forward to feedback!\nDo not spam this!");
+      </script>
+    </div>
+  </body>
+</html>
