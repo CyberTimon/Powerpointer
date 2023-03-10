@@ -1,7 +1,9 @@
 # PowerPoint Generator using Python-pptx and GPT 3.5
 This is a PowerPoint generator that uses Python-pptx and GPT 3.5 to generate beautiful and informative presentations. 
+Powerpointer doesn't use MARP. It directly creates the powerpoints so you can easily make changes to them or finish it within powerpoint.
+It also have placeholders for images!
 
-## Warning: The code for this tool is not professional and may require modifications to meet specific needs.
+## Warning: The code for this tool is not professional and may require modifications or optimization to meet specific needs.
 
 The PowerPoint generator comes with a beautiful Flask chat interface that waits for the user's prompt, which will be used to generate the PowerPoint presentation. With this tool, you can easily create stunning and informative presentations in no time.
 
