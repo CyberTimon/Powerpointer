@@ -144,6 +144,7 @@ def get_bot_response():
     last_char = user_text[-1]
     input_string = user_text
     input_string = re.sub(r'[^\w\s.\-\(\)]', '', input_string)
+    input_string = input_string.replace("\n", "")
     number = 1
 
     if last_char.isdigit():
