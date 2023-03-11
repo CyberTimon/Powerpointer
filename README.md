@@ -1,13 +1,15 @@
-# PowerPoint Generator using Python-pptx and GPT 3.5
+# PowerPoint Generator using python-pptx and GPT 3.5
 This is a PowerPoint generator that uses Python-pptx and GPT 3.5 to generate beautiful and informative presentations. 
 Powerpointer doesn't use MARP. It directly creates the powerpoints so you can easily make changes to them or finish it within powerpoint.
 It also have placeholders for images!
+
+To change the design of the powerpoint, at the end of your message you can e.g. add -2 (1-7). (In the flask webui). 
 
 ## Warning: The code for this tool is not professional and may require modifications or optimization to meet specific needs.
 
 The PowerPoint generator comes with a beautiful Flask chat interface that waits for the user's prompt, which will be used to generate the PowerPoint presentation. With this tool, you can easily create stunning and informative presentations in no time.
 
-You need a OpenAI API Key. You get 5 dollar free coins when you sign up. These will likely be more than enough for you.
+You need a OpenAI API Key. You get 5 dollar free credits when you sign up. These will likely be more than enough for you.
 
 # How it works:
 - The user sends a prompt
@@ -26,12 +28,12 @@ Please report any issues!
 
 Made by CyberTimon (timon@cybertimon.ch)
 
-# This is how the powerpoints will look:
+# This is how the powerpoints could look like (7 avialable designs):
 ![alt text](https://github.com/CyberTimon/powerpointer/raw/main/Demo1.png)
 
 
 ![alt text](https://github.com/CyberTimon/powerpointer/raw/main/Demo2.png)
 
-# And here is the Chat Ui:
+# And here is the chat ui design:
 ![alt text](https://github.com/CyberTimon/powerpointer/raw/main/ChatUi.png)
 
