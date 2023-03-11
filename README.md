@@ -18,7 +18,7 @@ You need a OpenAI API Key. You get 5 dollar free coins when you sign up. These w
 
 To use this, clone the repository and install the following packages:
 ```
-pip install flask python-pptx flask_limiter openai regex collections 
+pip install flask python-pptx flask_limiter openai regex collection
 ```
 Then start the flask webserver by running "start_app.bat"
 
