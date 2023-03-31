@@ -7,7 +7,7 @@ You can test it here: [BetterAPI Powerpointer](https://betterapi.net/powerpointe
 
 To change the design of the powerpoint, at the end of your message you can e.g. add -2 (1-7). (In the flask webui). 
 
-## Warning: The code for this tool is not professional and may require modifications or optimization to meet specific needs.
+## Warning: The code for this tool may require modifications or optimization to meet specific needs.
 
 The PowerPoint generator comes with a beautiful Flask chat interface that waits for the user's prompt, which will be used to generate the PowerPoint presentation. With this tool, you can easily create stunning and informative presentations in no time.
 
