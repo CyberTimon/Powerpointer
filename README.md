@@ -3,7 +3,10 @@ This is a PowerPoint generator that uses Python-pptx and GPT 3.5 to generate bea
 Powerpointer doesn't use MARP. It directly creates the powerpoints so you can easily make changes to them or finish it within powerpoint.
 It also have placeholders for images!
 
-To change the design of the powerpoint, at the end of your message you can e.g. add -2 (1-7). (In the flask webui). 
+To change the design of the powerpoint, at the end of your message you can e.g. add -2 (1-7). (In the flask webui).
+
+I ported this generator so it uses local large language models to generate the content for the PowerPoints. (For example LLaMA based models) 
+You can check it out here and feel free to give it a star: [Powerpointer-For-Local-LLMs](https://github.com/CyberTimon/Powerpointer-For-Local-LLMs)
 
 ## Warning: The code for this tool may require modifications or optimization to meet specific needs.
 
@@ -26,11 +29,11 @@ After this, place your OpenAI API Key inside app.py
 
 Finally start the flask webserver by running "start_app.bat"
 
-Please report any issues!
+Please report any issues and feel free to fix my code!
 
 Made by CyberTimon (timon@cybertimon.ch)
 
-# This is how the powerpoints could look like (7 avialable designs):
+# This is how the powerpoints could look like (7 available designs):
 ![alt text](https://github.com/CyberTimon/powerpointer/raw/main/Demo1.png)
 
 
