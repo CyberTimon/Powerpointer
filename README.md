@@ -3,8 +3,6 @@ This is a PowerPoint generator that uses Python-pptx and GPT 3.5 to generate bea
 Powerpointer doesn't use MARP. It directly creates the powerpoints so you can easily make changes to them or finish it within powerpoint.
 It also have placeholders for images!
 
-You can test it here: [BetterAPI Powerpointer](https://betterapi.net/powerpointer/) (Unoffical and not hosted by myself)
-
 To change the design of the powerpoint, at the end of your message you can e.g. add -2 (1-7). (In the flask webui). 
 
 ## Warning: The code for this tool may require modifications or optimization to meet specific needs.
