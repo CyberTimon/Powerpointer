@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 limiter = Limiter(
     app,
-    default_limits=["10 per day"], #This is the rate limit, you can remove it if you want
+    default_limits=["100 per day"], #This is the rate limit, you can remove it if you want
 )
 
 Prompt = """Write a presentation/powerpoint about the user's topic. You only answer with the presentation. Follow the structure of the example.
