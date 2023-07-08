@@ -11,6 +11,6 @@ COPY . .
 
 ENV FLASK_RUN_PORT 5000
 
-EXPOSE 443
+EXPOSE 5000
 
 CMD ["python3", "-m" , "flask", "run", "--host=0.0.0.0"]
