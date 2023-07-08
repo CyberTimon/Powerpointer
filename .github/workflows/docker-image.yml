@@ -36,5 +36,5 @@ jobs:
           username: ${{ secrets.CONTAINERREGISTRYUSERNAME }}
           password: ${{ secrets.CONTAINERREGISTRYPASSWORD }}
       - run: |
-          docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/powerpointer:${{ github.sha }}
-          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/powerpointer:${{ github.sha }}
+          docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/powerpointer
+          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/powerpointer
