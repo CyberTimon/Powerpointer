@@ -1,4 +1,13 @@
-name: Docker Image CI
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# GitHub recommends pinning actions to a commit SHA.
+# To get a newer version, you will need to update the SHA.
+# You can also reference a tag or branch, but the action may change without warning.
+
+name: Publish Docker image
 
 on:
   push:
@@ -7,17 +16,25 @@ on:
     branches: [ "main" ]
 
 jobs:
-
-  build:
-
+  push_to_registry:
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - uses: cschleiden/replace-tokens@v1
-      with:
-        files: '["app.py"]'
-      env:
-        OPEN_API_KEY: ${{ secrets.OpenApiKey }}
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - uses: cschleiden/replace-tokens@v1
+        with:
+          files: '["app.py"]'
+        env:
+          OPEN_API_KEY: ${{ secrets.OpenApiKey }}
+      
+      - name: 'Build and push image'
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.CONTAINERREGISTRYLOGINSERVER }}
+          username: ${{ secrets.CONTAINERREGISTRYUSERNAME }}
+          password: ${{ secrets.CONTAINERREGISTRYPASSWORD }}
+      - run: |
+          docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/powerpointer:${{ github.sha }}
+          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/powerpointer:${{ github.sha }}
