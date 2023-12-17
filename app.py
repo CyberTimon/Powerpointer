@@ -10,6 +10,8 @@ import random
 import re
 
 openai.api_key = "YOUR_API_KEY"
+client = openai.Client()
+
 app = Flask(__name__)
 
 limiter = Limiter(
@@ -56,7 +58,7 @@ Example! - Stick to this formatting exactly!
 #Slide: END"""
 
 def create_ppt_text(Input):
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": (Prompt)},
@@ -65,7 +67,7 @@ def create_ppt_text(Input):
         temperature=0.5,
     )
 
-    return response['choices'][0]['message']['content']
+    return response.choices[0].message.content
 
 def create_ppt(text_file, design_number, ppt_name):
     prs = Presentation(f"Designs/Design-{design_number}.pptx")
