@@ -163,11 +163,20 @@ def get_bot_response():
         number = 1
         print("Unavailable design, using default design...")
 
-    with open(f'Cache/{input_string}.txt', 'w', encoding='utf-8') as f:
+    # Generate a filename using OpenAI API
+    filename_prompt = f"Generate a short, descriptive filename based on the following input: \"{input_string}\". Answer just with the short filename, no other explainment."
+    filename_response = client.chat.completions.create(
+        model="gpt-3.5-turbo-1106",
+        messages=[
+            {"role": "system", "content": filename_prompt},
+        ],
+        temperature=0.5,
+        max_tokens=30,
+    )
+    filename = filename_response.choices[0].message.content.strip().replace(" ", "_")
+
+    with open(f'Cache/{filename}.txt', 'w', encoding='utf-8') as f:
         f.write(create_ppt_text(input_string))
 
-    pptlink = create_ppt(f'Cache/{input_string}.txt', number, input_string)
+    pptlink = create_ppt(f'Cache/{filename}.txt', number, filename)
     return str(pptlink)
-    
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=False, port=21127)
