@@ -164,14 +164,14 @@ def get_bot_response():
         print("Unavailable design, using default design...")
 
     # Generate a filename using OpenAI API
-    filename_prompt = f"Generate a short, descriptive filename based on the following input: {input_string}"
+    filename_prompt = f"Generate a short, descriptive filename based on the following input: \"{input_string}\". Answer just with the short filename, no other explainment."
     filename_response = client.chat.completions.create(
-        model="gpt-4-0125-preview",
+        model="gpt-3.5-turbo-1106",
         messages=[
             {"role": "system", "content": filename_prompt},
         ],
         temperature=0.5,
-        max_tokens=10,
+        max_tokens=30,
     )
     filename = filename_response.choices[0].message.content.strip().replace(" ", "_")
 
