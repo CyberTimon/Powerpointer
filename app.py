@@ -9,8 +9,7 @@ from pptx.util import Inches
 import random 
 import re
 
-openai.api_key = "YOUR_API_KEY"
-client = openai.Client()
+client = openai.OpenAI(api_key='YOUR_API_KEY')
 
 app = Flask(__name__)
 
@@ -180,3 +179,7 @@ def get_bot_response():
 
     pptlink = create_ppt(f'Cache/{filename}.txt', number, filename)
     return str(pptlink)
+
+if __name__ == '__main__':
+    # debug=True in the run() parameter if you want to debug
+    app.run()
